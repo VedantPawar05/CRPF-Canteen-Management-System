@@ -133,7 +133,7 @@ Create `.env` files inside each service folder based on the variables they refer
 #### API Gateway (`apps/api-gateway/.env`)
 ```env
 PORT=4000
-JWT_SECRET=crpf-canteen-secret-key-change-in-production
+JWT_SECRET=<YOUR_JWT_SECRET_KEY>
 CORS_ORIGIN=http://localhost:3000
 AUTH_SERVICE_URL=http://localhost:4001
 MENU_SERVICE_URL=http://localhost:4002
@@ -146,12 +146,12 @@ NOTIFICATION_SERVICE_URL=http://localhost:4006
 #### Auth Service (`services/auth-service/.env`)
 ```env
 PORT=4001
-JWT_SECRET=crpf-canteen-secret-key-change-in-production
-JWT_REFRESH_SECRET=crpf-canteen-refresh-secret-change-in-production
+JWT_SECRET=<YOUR_JWT_SECRET_KEY>
+JWT_REFRESH_SECRET=<YOUR_JWT_REFRESH_SECRET_KEY>
 DB_HOST=localhost
 DB_PORT=5433
-DB_USER=admin
-DB_PASSWORD=adminpassword
+DB_USER=<YOUR_DB_USER>
+DB_PASSWORD=<YOUR_DB_PASSWORD>
 DB_NAME=servesmart
 ```
 
@@ -160,8 +160,8 @@ DB_NAME=servesmart
 PORT=4002
 DB_HOST=localhost
 DB_PORT=5433
-DB_USER=admin
-DB_PASSWORD=adminpassword
+DB_USER=<YOUR_DB_USER>
+DB_PASSWORD=<YOUR_DB_PASSWORD>
 DB_NAME=servesmart
 REDIS_HOST=localhost
 ```
@@ -169,13 +169,13 @@ REDIS_HOST=localhost
 #### Order Service (`services/order-service/.env`)
 ```env
 PORT=4003
-QR_SECRET=crpf-qr-signing-key
+QR_SECRET=<YOUR_QR_SIGNING_SECRET>
 DB_HOST=localhost
 DB_PORT=5433
-DB_USER=admin
-DB_PASSWORD=adminpassword
+DB_USER=<YOUR_DB_USER>
+DB_PASSWORD=<YOUR_DB_PASSWORD>
 DB_NAME=servesmart
-RABBITMQ_URL=amqp://guest:guest@localhost:5672
+RABBITMQ_URL=amqp://<MQ_USER>:<MQ_PASSWORD>@localhost:5672
 ```
 
 #### Inventory Service (`services/inventory-service/.env`)
@@ -183,27 +183,27 @@ RABBITMQ_URL=amqp://guest:guest@localhost:5672
 PORT=4004
 DB_HOST=localhost
 DB_PORT=5433
-DB_USER=admin
-DB_PASSWORD=adminpassword
+DB_USER=<YOUR_DB_USER>
+DB_PASSWORD=<YOUR_DB_PASSWORD>
 DB_NAME=servesmart
-RABBITMQ_URL=amqp://guest:guest@localhost:5672
+RABBITMQ_URL=amqp://<MQ_USER>:<MQ_PASSWORD>@localhost:5672
 ```
 
 #### Payment Service (`services/payment-service/.env`)
 ```env
 PORT=4005
-QR_SECRET=crpf-qr-signing-key
+QR_SECRET=<YOUR_QR_SIGNING_SECRET>
 DB_HOST=localhost
 DB_PORT=5433
-DB_USER=admin
-DB_PASSWORD=adminpassword
+DB_USER=<YOUR_DB_USER>
+DB_PASSWORD=<YOUR_DB_PASSWORD>
 DB_NAME=servesmart
 ```
 
 #### Notification Service (`services/notification-service/.env`)
 ```env
 PORT=4006
-RABBITMQ_URL=amqp://guest:guest@localhost:5672
+RABBITMQ_URL=amqp://<MQ_USER>:<MQ_PASSWORD>@localhost:5672
 ```
 
 #### Web App Frontend (`apps/web/.env.local`)
