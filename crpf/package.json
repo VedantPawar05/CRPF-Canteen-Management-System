@@ -1,0 +1,19 @@
+{
+  "name": "crpf-canteen-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "services/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=apps/web",
+    "start:services": "concurrently \"npm run dev --workspace=apps/api-gateway\" \"npm run dev --workspace=services/auth-service\" \"npm run dev --workspace=services/menu-service\" \"npm run dev --workspace=services/order-service\" \"npm run dev --workspace=services/inventory-service\" \"npm run dev --workspace=services/payment-service\" \"npm run dev --workspace=services/notification-service\"",
+    "start:all": "concurrently \"npm run start:services\" \"npm run dev\"",
+    "build": "npm run build --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

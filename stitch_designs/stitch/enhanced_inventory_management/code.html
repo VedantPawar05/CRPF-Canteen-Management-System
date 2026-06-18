@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Inventory Management | CRPF Canteen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Work+Sans:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "background": "#0e0e12",
+                "surface": "#131318",
+                "surface-container": "#191920",
+                "surface-container-high": "#2a2b38",
+                "primary": "#ffb690",
+                "on-primary": "#4a2100",
+                "secondary": "#aaaab7",
+                "outline": "#464753",
+                "error": "#ffb4ab",
+                "on-error": "#690005",
+                "success": "#b4f3b7",
+                "on-success": "#003912"
+              },
+              borderRadius: {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.375rem",
+                "2xl": "0.5rem",
+                "full": "9999px"
+              },
+              fontFamily: {
+                "headline": ["Plus Jakarta Sans"],
+                "body": ["Plus Jakarta Sans"],
+                "label": ["Plus Jakarta Sans"]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .inset-shadow-sm {
+            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+        }
+        .tonal-shift {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0));
+        }
+        /* Custom Scrollbar for Dark Theme */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0e0e12; }
+        ::-webkit-scrollbar-thumb { background: #2a2b38; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #464753; }
+    </style>
+</head>
+<body class="bg-background font-body text-secondary antialiased">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-screen w-64 bg-[#131318] flex flex-col p-4 z-50 transition-all duration-300 inset-shadow-sm border-r border-[#464753]/20">
+<div class="mb-10 px-4 pt-4">
+<h1 class="text-xl font-black tracking-tighter text-[#ffb690]">CRPF Canteen</h1>
+<p class="text-[10px] text-[#aaaab7] uppercase tracking-widest mt-1 opacity-70">Central Command</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-[#aaaab7] hover:bg-[#2a2b38] transition-all font-medium text-sm rounded-lg" href="#">
+<span class="material-symbols-outlined text-xl">dashboard</span> Dashboard
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#ffb690] bg-[#191920] border-r-2 border-[#ffb690] transition-all font-bold text-sm rounded-l-lg" href="#">
+<span class="material-symbols-outlined text-xl">inventory_2</span> Inventory
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#aaaab7] hover:bg-[#2a2b38] transition-all font-medium text-sm rounded-lg" href="#">
+<span class="material-symbols-outlined text-xl">receipt_long</span> Orders
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#aaaab7] hover:bg-[#2a2b38] transition-all font-medium text-sm rounded-lg" href="#">
+<span class="material-symbols-outlined text-xl">group</span> Personnel
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#aaaab7] hover:bg-[#2a2b38] transition-all font-medium text-sm rounded-lg" href="#">
+<span class="material-symbols-outlined text-xl">settings</span> Settings
+            </a>
+</nav>
+<div class="mt-auto space-y-1 pt-4 border-t border-[#464753]/30">
+<button class="w-full mb-4 py-3 bg-[#783200] text-[#ffb690] text-xs font-bold rounded-lg uppercase tracking-wider active:scale-95 transition-transform">
+                Generate Report
+            </button>
+<a class="flex items-center gap-3 px-4 py-3 text-[#aaaab7] hover:bg-[#2a2b38] transition-all font-medium text-sm rounded-lg" href="#">
+<span class="material-symbols-outlined text-xl">help</span> Help Center
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-error/80 hover:text-error transition-all font-medium text-sm rounded-lg" href="#">
+<span class="material-symbols-outlined text-xl">logout</span> Logout
+            </a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-8 h-20 bg-[#131318] tonal-shift sticky top-0 z-40 shadow-[0_32px_64px_rgba(0,0,0,0.1)] border-b border-[#464753]/10">
+<div class="flex items-center flex-1 max-w-xl">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-[#aaaab7]/50">search</span>
+<input class="w-full bg-[#191920] border-none rounded-lg py-3 pl-12 pr-4 focus:ring-1 focus:ring-[#ffb690] font-body text-sm text-[#aaaab7] placeholder-[#aaaab7]/30" placeholder="Search inventory items..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4 ml-8">
+<!-- Theme Toggle -->
+<button class="p-2 text-[#aaaab7] hover:bg-[#2a2b38] rounded-lg transition-colors active:scale-95 duration-200" onclick="document.documentElement.classList.toggle('light'); document.documentElement.classList.toggle('dark');">
+<span class="material-symbols-outlined">dark_mode</span>
+</button>
+<button class="relative p-2 text-[#aaaab7] hover:bg-[#2a2b38] rounded-lg transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-1.5 h-1.5 bg-error rounded-full"></span>
+</button>
+<div class="flex items-center gap-3 pl-4 border-l border-[#464753]/30">
+<div class="text-right hidden sm:block">
+<p class="text-sm font-bold text-[#ffb690] tracking-tight">Admin Control</p>
+<p class="text-[10px] text-[#aaaab7] uppercase tracking-tighter opacity-70">Inventory Unit</p>
+</div>
+<img alt="User profile" class="w-10 h-10 rounded-full bg-[#2a2b38] object-cover ring-2 ring-[#464753]/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_XYE21-27HO7zyzA1PaP3jmSKSz40IuDWottu7oQ7WGApKuEX21RPxEk_T_miI7yh3598bTpNIr_CjRtAd-GMdDaFdrz-kp8WdRy0u1Vt6ow0HHGpzbu0jRiblTl__IIptIDOoTsrdKWAA-JKyG9KDA1Bo1cELdiKSXaXXwj_-YgZAVxPUWOnfZqBkICAhZ4FlRN_QaGLqbhTVfPHFGuDqyCGzmt6mnu1JtX2BEDlWKhIQ_Zux2WGJGcDQl11SaKhD1_6tu2yHoLd"/>
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="p-8 space-y-8 max-w-[1400px] mx-auto w-full">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h2 class="text-3xl font-black font-headline text-[#ffb690] tracking-tighter">Inventory Management</h2>
+<p class="text-[#aaaab7] mt-1 font-medium text-sm">Monitor and manage canteen supplies across all command sectors.</p>
+</div>
+<button class="bg-[#ffb690] text-[#4a2100] px-6 py-3 rounded-lg font-bold flex items-center justify-center gap-2 shadow-lg shadow-[#ffb690]/10 hover:brightness-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined">add</span> Add New Item
+                </button>
+</div>
+<!-- Summary Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-[#131318] p-6 rounded-lg border border-[#464753]/20 tonal-shift">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-xs text-[#aaaab7] font-bold uppercase tracking-widest opacity-60">Total SKU Count</p>
+<h3 class="text-3xl font-black text-[#ffb690] mt-2">1,284</h3>
+</div>
+<div class="w-10 h-10 bg-[#191920] rounded-lg flex items-center justify-center text-[#ffb690]">
+<span class="material-symbols-outlined">category</span>
+</div>
+</div>
+<div class="mt-4 flex items-center gap-2 text-[10px] font-bold">
+<span class="text-success bg-on-success/20 px-2 py-0.5 rounded-full">+12 new this month</span>
+</div>
+</div>
+<div class="bg-[#131318] p-6 rounded-lg border border-error/20 relative overflow-hidden tonal-shift">
+<div class="flex justify-between items-start relative z-10">
+<div>
+<p class="text-xs text-[#aaaab7] font-bold uppercase tracking-widest opacity-60">Low Stock Items</p>
+<h3 class="text-3xl font-black text-error mt-2">24</h3>
+</div>
+<div class="w-10 h-10 bg-error/10 rounded-lg flex items-center justify-center text-error">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+</div>
+<div class="mt-4 flex items-center gap-2 text-[10px] font-bold text-error">
+<span class="uppercase tracking-widest">Immediate Attention Required</span>
+</div>
+<div class="absolute -right-2 -bottom-2 opacity-5">
+<span class="material-symbols-outlined text-7xl text-error">priority_high</span>
+</div>
+</div>
+<div class="bg-[#131318] p-6 rounded-lg border border-[#464753]/20 tonal-shift">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-xs text-[#aaaab7] font-bold uppercase tracking-widest opacity-60">Out of Stock</p>
+<h3 class="text-3xl font-black text-white mt-2">08</h3>
+</div>
+<div class="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined">error_outline</span>
+</div>
+</div>
+<div class="mt-4 flex items-center gap-2 text-[10px] font-bold text-[#aaaab7]">
+<span>3 items pending restock</span>
+</div>
+</div>
+</div>
+<!-- Main Layout: Table + Sidebar -->
+<div class="flex flex-col xl:flex-row gap-8">
+<!-- Table Section -->
+<div class="flex-1 space-y-6">
+<!-- Filter Bar -->
+<div class="bg-[#131318] p-2 rounded-lg flex flex-wrap items-center gap-3 border border-[#464753]/10">
+<button class="bg-[#191920] px-4 py-2 rounded-lg flex items-center gap-2 text-xs font-bold text-[#ffb690] border border-[#ffb690]/20">
+<span class="material-symbols-outlined text-base">filter_list</span>
+                            All Categories
+                            <span class="material-symbols-outlined text-base">expand_more</span>
+</button>
+<button class="bg-[#191920] px-4 py-2 rounded-lg flex items-center gap-2 text-xs font-bold text-[#aaaab7] border border-[#464753]/20">
+                            Status: In Stock
+                            <span class="material-symbols-outlined text-base">expand_more</span>
+</button>
+<div class="ml-auto flex items-center gap-2 px-2">
+<button class="p-2 hover:bg-[#2a2b38] text-[#aaaab7] rounded-lg transition-colors">
+<span class="material-symbols-outlined">view_list</span>
+</button>
+<button class="p-2 bg-[#ffb690]/10 text-[#ffb690] rounded-lg transition-colors">
+<span class="material-symbols-outlined">grid_view</span>
+</button>
+</div>
+</div>
+<!-- Inventory Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Item Card 1 -->
+<div class="bg-[#131318] rounded-lg overflow-hidden border border-[#464753]/20 hover:border-[#ffb690]/40 transition-all group tonal-shift">
+<div class="h-44 w-full relative bg-[#0e0e12] overflow-hidden">
+<img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCL5FgqKgsabLEt4rFGuScMPRtpfHI9gaBv-9PxoWKkQ-VwcWAFLkzbe3Dh6_LFmaEnuSeEtyZjiicFLFMZ9NmFJann-8uwSgpLeAQMEqZ3HUOLJaLOP39Neg4eILecY3bfrKLOe_mOd9LLsG5MplF3wlNMURZGkYUFxGwoaIsEnoQcSwHPAN1XUMKuJAMppaRgcDD-7MYUAIfBOtlLETOwyX62TuV6Umpc-gYRaoT5ODl_LL-D9iWcJZIYQ5ZLqUWzTwxceNKXDETr"/>
+<span class="absolute top-3 right-3 bg-success/20 text-success text-[9px] font-black px-2 py-0.5 rounded uppercase tracking-tighter border border-success/30 backdrop-blur-md">In Stock</span>
+</div>
+<div class="p-4 space-y-4">
+<div>
+<p class="text-[10px] font-black text-[#ffb690] uppercase tracking-[0.2em] opacity-80">Snacks</p>
+<h4 class="text-sm font-bold text-white mt-1 leading-tight">Multi-Grain Crackers (Large)</h4>
+</div>
+<div class="space-y-1.5">
+<div class="flex justify-between items-center text-[10px] font-bold">
+<span class="text-[#aaaab7]">Stock Level: 85%</span>
+<span class="text-white">170 / 200 Units</span>
+</div>
+<div class="h-1 w-full bg-[#191920] rounded-full overflow-hidden">
+<div class="h-full bg-[#ffb690] rounded-full" style="width: 85%;"></div>
+</div>
+</div>
+<div class="flex justify-between items-center pt-3 border-t border-[#464753]/20">
+<span class="text-base font-black text-white">₹45.00</span>
+<div class="flex gap-1">
+<button class="p-1.5 hover:bg-[#2a2b38] text-[#aaaab7] rounded transition-colors"><span class="material-symbols-outlined text-lg">edit</span></button>
+<button class="p-1.5 bg-[#191920] text-[#ffb690] text-[10px] font-black uppercase px-3 rounded hover:bg-[#2a2b38] transition-colors">Restock</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Item Card 2 -->
+<div class="bg-[#131318] rounded-lg overflow-hidden border border-error/20 hover:border-error/40 transition-all group tonal-shift">
+<div class="h-44 w-full relative bg-[#0e0e12] overflow-hidden">
+<img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9NeQktI5vf_oj1yr1F1iVXjCr1hSs1TtmYBIqArnuvifcMiazI_7VIA1rwHGfUiryyiOv0F_YYjsayinmDE_PDTZnsBbObVhKQDkJZnd6alUHJso8SowlswDB70BhGt2FnlMB0vmgPFvVYLSvjDXuc5VwVH_kf_1_5WLr-ymt-8NkQJaxScGrENamSjrmnKFUpfyiiMdGm2r6mg5sZRNOThrDQsFUxCpXUxjqirLgjc5lyfIV3BTQ2dHYyIvbiA4jyxoW2tAbQsve"/>
+<span class="absolute top-3 right-3 bg-error/20 text-error text-[9px] font-black px-2 py-0.5 rounded uppercase tracking-tighter border border-error/30 backdrop-blur-md">Low Stock</span>
+</div>
+<div class="p-4 space-y-4">
+<div>
+<p class="text-[10px] font-black text-error uppercase tracking-[0.2em] opacity-80">Beverages</p>
+<h4 class="text-sm font-bold text-white mt-1 leading-tight">Natural Energy Drink (250ml)</h4>
+</div>
+<div class="space-y-1.5">
+<div class="flex justify-between items-center text-[10px] font-bold">
+<span class="text-error">Stock Level: 12%</span>
+<span class="text-white">18 / 150 Units</span>
+</div>
+<div class="h-1 w-full bg-[#191920] rounded-full overflow-hidden">
+<div class="h-full bg-error rounded-full" style="width: 12%;"></div>
+</div>
+</div>
+<div class="flex justify-between items-center pt-3 border-t border-[#464753]/20">
+<span class="text-base font-black text-white">₹75.00</span>
+<div class="flex gap-1">
+<button class="p-1.5 hover:bg-[#2a2b38] text-[#aaaab7] rounded transition-colors"><span class="material-symbols-outlined text-lg">edit</span></button>
+<button class="p-1.5 bg-error text-on-error text-[10px] font-black uppercase px-3 rounded hover:brightness-110 transition-colors">Restock</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Item Card 3 -->
+<div class="bg-[#131318] rounded-lg overflow-hidden border border-[#464753]/20 hover:border-[#ffb690]/40 transition-all group tonal-shift">
+<div class="h-44 w-full relative bg-[#0e0e12] overflow-hidden">
+<img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgq6hH895-K-79yRymnR7GIcqlk7BAOVBxYlDSq0FLLAJDLbeJp0NqFPKd3QMD3DzMqFYnZzLe1GWpoWf10oZjXtRv4tbyHv38X7uLNj7huZUfCnuhIxVYy10j2jzmcxOhasUcooRHUD6qYY18qc5UyC0SMN_J4GN-VJGs_Cizihn6-Uv9-PzYuuKjG1TmMBqNjteqPSVMDBzcyja092Q4uSbiGKMse_WFeDpHVEDhDB5R9m8YSs0asg-UDjshYTyPiaKCCIzHl-kI"/>
+<span class="absolute top-3 right-3 bg-success/20 text-success text-[9px] font-black px-2 py-0.5 rounded uppercase tracking-tighter border border-success/30 backdrop-blur-md">In Stock</span>
+</div>
+<div class="p-4 space-y-4">
+<div>
+<p class="text-[10px] font-black text-[#ffb690] uppercase tracking-[0.2em] opacity-80">Meals</p>
+<h4 class="text-sm font-bold text-white mt-1 leading-tight">Ready-to-Eat Burger Box</h4>
+</div>
+<div class="space-y-1.5">
+<div class="flex justify-between items-center text-[10px] font-bold">
+<span class="text-[#aaaab7]">Stock Level: 45%</span>
+<span class="text-white">45 / 100 Units</span>
+</div>
+<div class="h-1 w-full bg-[#191920] rounded-full overflow-hidden">
+<div class="h-full bg-[#ffb690] rounded-full" style="width: 45%;"></div>
+</div>
+</div>
+<div class="flex justify-between items-center pt-3 border-t border-[#464753]/20">
+<span class="text-base font-black text-white">₹120.00</span>
+<div class="flex gap-1">
+<button class="p-1.5 hover:bg-[#2a2b38] text-[#aaaab7] rounded transition-colors"><span class="material-symbols-outlined text-lg">edit</span></button>
+<button class="p-1.5 bg-[#191920] text-[#ffb690] text-[10px] font-black uppercase px-3 rounded hover:bg-[#2a2b38] transition-colors">Restock</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Sidebar: Alerts -->
+<aside class="w-full xl:w-80 space-y-6">
+<div class="bg-[#131318] p-6 rounded-lg border border-[#464753]/20 tonal-shift">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-bold text-[#ffb690] text-sm uppercase tracking-widest">Alerts Zone</h3>
+<span class="text-[9px] bg-error text-on-error font-black px-2 py-0.5 rounded uppercase tracking-tighter">Urgent</span>
+</div>
+<div class="space-y-4">
+<!-- Alert 1 -->
+<div class="bg-[#191920] p-4 rounded-lg border-l-2 border-error flex gap-3">
+<div class="flex-1">
+<p class="text-[9px] font-black text-error uppercase tracking-widest mb-1">Critical Low</p>
+<h4 class="text-xs font-bold text-white">Wheat Flour 5kg</h4>
+<p class="text-[10px] text-[#aaaab7] mt-1">2 bags remaining in sector B</p>
+</div>
+<button class="self-start p-1.5 text-error hover:bg-error/10 rounded transition-colors">
+<span class="material-symbols-outlined text-lg">shopping_cart_checkout</span>
+</button>
+</div>
+<!-- Alert 2 -->
+<div class="bg-[#191920] p-4 rounded-lg border-l-2 border-primary flex gap-3">
+<div class="flex-1">
+<p class="text-[9px] font-black text-primary uppercase tracking-widest mb-1">In Transit</p>
+<h4 class="text-xs font-bold text-white">Dairy Mix Case (24)</h4>
+<p class="text-[10px] text-[#aaaab7] mt-1">ETA: 14:00 Today • ID #CN882</p>
+</div>
+<button class="self-start p-1.5 text-primary hover:bg-primary/10 rounded transition-colors">
+<span class="material-symbols-outlined text-lg">local_shipping</span>
+</button>
+</div>
+</div>
+<button class="w-full mt-6 py-3 bg-[#191920] text-[#aaaab7] font-bold text-[10px] rounded-lg hover:bg-[#2a2b38] transition-all uppercase tracking-widest border border-[#464753]/20">
+                            View All Active Alerts
+                        </button>
+</div>
+<!-- Capacity Card -->
+<div class="bg-[#131318] p-6 rounded-lg border border-[#464753]/20 relative overflow-hidden tonal-shift">
+<div class="flex items-center gap-3 mb-6 relative z-10">
+<span class="material-symbols-outlined text-[#ffb690]">warehouse</span>
+<span class="text-xs font-bold text-white uppercase tracking-widest">Warehouse Capacity</span>
+</div>
+<div class="space-y-2 relative z-10">
+<div class="flex justify-between items-center text-[10px] font-black">
+<span class="text-[#aaaab7] uppercase tracking-tighter">Current Occupancy</span>
+<span class="text-[#ffb690]">72%</span>
+</div>
+<div class="h-1.5 w-full bg-[#191920] rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-[#ffb690]/50 to-[#ffb690] rounded-full" style="width: 72%;"></div>
+</div>
+</div>
+<p class="mt-6 text-[9px] text-[#aaaab7]/50 font-medium italic relative z-10">Last audited: Oct 24, 2023</p>
+<div class="absolute -right-6 -bottom-6 opacity-[0.03]">
+<span class="material-symbols-outlined text-9xl">storage</span>
+</div>
+</div>
+</aside>
+</div>
+<!-- Footer Pagination -->
+<div class="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-[#464753]/20">
+<p class="text-xs text-[#aaaab7] font-medium uppercase tracking-widest opacity-60">Showing <strong>1 - 12</strong> of 1,284 items</p>
+<div class="flex gap-2">
+<button class="w-9 h-9 rounded bg-[#191920] text-[#aaaab7] flex items-center justify-center opacity-40 cursor-not-allowed">
+<span class="material-symbols-outlined text-xl">chevron_left</span>
+</button>
+<button class="w-9 h-9 rounded bg-[#ffb690] text-[#4a2100] flex items-center justify-center font-black text-sm">1</button>
+<button class="w-9 h-9 rounded bg-[#191920] text-[#aaaab7] flex items-center justify-center font-bold text-sm hover:bg-[#2a2b38] transition-colors">2</button>
+<button class="w-9 h-9 rounded bg-[#191920] text-[#aaaab7] flex items-center justify-center font-bold text-sm hover:bg-[#2a2b38] transition-colors">3</button>
+<button class="w-9 h-9 rounded bg-[#191920] text-[#aaaab7] flex items-center justify-center hover:bg-[#2a2b38] transition-colors">
+<span class="material-symbols-outlined text-xl">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-highest": "#dbe4e7",
+                        "on-tertiary-fixed": "#484a4a",
+                        "on-tertiary-container": "#5a5c5c",
+                        "on-primary": "#f4f8ff",
+                        "primary-fixed-dim": "#cfd5dd",
+                        "tertiary-fixed": "#f3f3f3",
+                        "tertiary-container": "#f3f3f3",
+                        "background": "#f8f9fa",
+                        "secondary": "#5e5f5f",
+                        "error": "#9f403d",
+                        "tertiary-dim": "#525354",
+                        "on-secondary": "#f9f9f9",
+                        "secondary-fixed-dim": "#d4d4d4",
+                        "inverse-on-surface": "#9b9d9e",
+                        "tertiary-fixed-dim": "#e5e5e5",
+                        "on-tertiary-fixed-variant": "#656667",
+                        "on-background": "#2b3437",
+                        "error-container": "#fe8983",
+                        "outline-variant": "#abb3b7",
+                        "secondary-dim": "#525354",
+                        "on-primary-container": "#4c5259",
+                        "surface-container": "#eaeff1",
+                        "on-surface-variant": "#586064",
+                        "inverse-primary": "#f1f7ff",
+                        "surface-variant": "#dbe4e7",
+                        "primary": "#595f66",
+                        "on-error": "#fff7f6",
+                        "error-dim": "#4e0309",
+                        "inverse-surface": "#0c0f10",
+                        "secondary-container": "#e2e2e2",
+                        "on-secondary-container": "#505252",
+                        "tertiary": "#5e5f60",
+                        "on-surface": "#2b3437",
+                        "on-secondary-fixed": "#3e4040",
+                        "primary-container": "#dde3eb",
+                        "surface-tint": "#595f66",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-dim": "#4d5359",
+                        "surface-container-low": "#f1f4f6",
+                        "surface-bright": "#f8f9fa",
+                        "on-primary-fixed": "#3a4046",
+                        "surface": "#f8f9fa",
+                        "outline": "#737c7f",
+                        "on-error-container": "#752121",
+                        "primary-fixed": "#dde3eb",
+                        "on-primary-fixed-variant": "#565c63",
+                        "surface-container-high": "#e3e9ec",
+                        "on-tertiary": "#f9f9f9",
+                        "surface-dim": "#d1dce0",
+                        "on-secondary-fixed-variant": "#5a5c5c",
+                        "secondary-fixed": "#e2e2e2",
+                        "brand-gold": "#ffb690",
+                        "brand-dark": "#0e0e12",
+                        "brand-surface": "#131318"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "2xl": "2rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Work Sans"],
+                        "label": ["Work Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tactile-outset {
+            box-shadow: 8px 8px 16px rgba(171, 179, 183, 0.15), -8px -8px 16px #ffffff;
+        }
+        .dark .tactile-outset {
+            box-shadow: 8px 8px 24px rgba(0, 0, 0, 0.4), -2px -2px 8px rgba(255, 255, 255, 0.05);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-background dark:bg-brand-dark font-body text-on-surface dark:text-gray-200 antialiased pb-32 transition-colors duration-300">
+<header class="sticky top-0 z-50 bg-surface/80 dark:bg-brand-dark/80 backdrop-blur-md border-b border-surface-container-highest dark:border-white/5">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
+<div class="flex flex-col">
+<span class="text-on-surface-variant dark:text-gray-400 font-label text-[10px] uppercase tracking-[0.2em] font-bold">Base Alpha-1</span>
+<h1 class="text-xl font-black tracking-tight text-slate-800 dark:text-brand-gold font-headline">Tactile Curator</h1>
+</div>
+<div class="flex gap-3">
+<button class="w-10 h-10 rounded-xl bg-surface-container-low dark:bg-white/5 flex items-center justify-center text-on-surface-variant dark:text-gray-300 hover:opacity-80 transition-all active:scale-95" onclick="document.documentElement.classList.toggle('dark')">
+<span class="material-symbols-outlined">dark_mode</span>
+</button>
+<button class="w-10 h-10 rounded-xl bg-surface-container-low dark:bg-white/5 flex items-center justify-center text-on-surface-variant dark:text-gray-300 hover:opacity-80 transition-all active:scale-95">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-6 space-y-8 mt-6">
+<section id="active-order">
+<div class="tactile-outset bg-surface-container-lowest dark:bg-brand-surface rounded-2xl p-6 relative overflow-hidden border border-white/50 dark:border-white/5">
+<div class="absolute top-0 right-0 w-40 h-40 bg-primary/5 dark:bg-brand-gold/5 rounded-full -mr-20 -mt-20"></div>
+<div class="flex justify-between items-start mb-6">
+<div>
+<span class="inline-block px-3 py-1 rounded-full bg-primary-container dark:bg-brand-gold/20 text-on-primary-container dark:text-brand-gold font-label text-[10px] font-extrabold uppercase tracking-widest mb-3">Preparing</span>
+<h2 class="font-headline font-extrabold text-2xl text-on-surface dark:text-white">Protein Bowl Deluxe</h2>
+<p class="text-on-surface-variant dark:text-gray-400 text-sm mt-1">Estimated arrival: <span class="font-bold">12:45 PM</span></p>
+</div>
+<div class="text-right">
+<span class="block font-headline font-bold text-lg text-slate-700 dark:text-brand-gold">#ORD-882</span>
+<span class="text-[10px] text-outline dark:text-gray-500 font-bold uppercase tracking-widest">Main Canteen</span>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<div class="flex-1 h-2 bg-surface-container-highest dark:bg-white/10 rounded-full overflow-hidden">
+<div class="w-2/3 h-full bg-gradient-to-r from-primary to-primary-dim dark:from-brand-gold dark:to-orange-400"></div>
+</div>
+<span class="text-xs font-black text-primary dark:text-brand-gold">65%</span>
+</div>
+<div class="flex justify-between text-[9px] uppercase font-bold text-outline-variant dark:text-gray-500 tracking-tighter">
+<span class="text-primary dark:text-brand-gold">Order Confirmed</span>
+<span class="text-primary dark:text-brand-gold">In Kitchen</span>
+<span>Ready for Pickup</span>
+</div>
+</div>
+</div>
+</section>
+<section class="relative" id="categories">
+<div class="flex overflow-x-auto pb-2 gap-3 no-scrollbar">
+<button class="shrink-0 bg-primary dark:bg-brand-gold px-8 py-3 rounded-2xl text-on-primary dark:text-brand-dark font-headline font-bold text-sm shadow-xl shadow-primary/20 dark:shadow-brand-gold/10 active:scale-95 transition-all">All Items</button>
+<button class="shrink-0 bg-surface-container-high dark:bg-white/5 px-8 py-3 rounded-2xl text-on-surface-variant dark:text-gray-400 font-headline font-bold text-sm hover:bg-surface-container-highest dark:hover:bg-white/10 transition-colors active:scale-95">Breakfast</button>
+<button class="shrink-0 bg-surface-container-high dark:bg-white/5 px-8 py-3 rounded-2xl text-on-surface-variant dark:text-gray-400 font-headline font-bold text-sm hover:bg-surface-container-highest dark:hover:bg-white/10 transition-colors active:scale-95">Lunch</button>
+<button class="shrink-0 bg-surface-container-high dark:bg-white/5 px-8 py-3 rounded-2xl text-on-surface-variant dark:text-gray-400 font-headline font-bold text-sm hover:bg-surface-container-highest dark:hover:bg-white/10 transition-colors active:scale-95">Snacks</button>
+<button class="shrink-0 bg-surface-container-high dark:bg-white/5 px-8 py-3 rounded-2xl text-on-surface-variant dark:text-gray-400 font-headline font-bold text-sm hover:bg-surface-container-highest dark:hover:bg-white/10 transition-colors active:scale-95">Beverages</button>
+</div>
+</section>
+<section id="menu-grid">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-10">
+<!-- Item 1 -->
+<div class="group bg-surface-container-lowest dark:bg-brand-surface rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:shadow-2xl hover:shadow-black/5 dark:hover:shadow-brand-gold/5 hover:-translate-y-1 border border-transparent dark:border-white/5">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Close-up of a vibrant healthy poke bowl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOOTEOOEaSYFI28w98HwpSEPBnho_eteOBWHPr5LLjLkVNtT95dnHb692Ts5h_Z0BggebeiTNmpMpuWcyu3pGerlPo49rhN0d4QZKOggOKeBdfgcdS4KNUTUJFSQPTfR99H97SZjJRz4up_8U_8Y9zuojDYlFKVYO_U8RWJGV3T1YeHdnpkqwO3naFfCGOe4dmqbw04Wa0WD3RWP1T-hD3Ks-olLV1C67xZ9e8dP1gz9fe98SSHuvclA8bifRNUsQFTReb-Lm_4LU9"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+<div class="absolute top-4 left-4 bg-white/95 dark:bg-brand-dark/95 backdrop-blur-md px-4 py-1.5 rounded-full shadow-lg">
+<span class="text-on-surface dark:text-brand-gold font-headline font-black text-sm">$12.50</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline font-extrabold text-xl leading-tight dark:text-white">Salmon Energy Bowl</h3>
+<div class="flex items-center text-primary-dim dark:text-brand-gold bg-primary/5 dark:bg-brand-gold/10 px-2 py-0.5 rounded-lg">
+<span class="material-symbols-outlined text-[16px] fill-1">star</span>
+<span class="text-xs font-black ml-1">4.8</span>
+</div>
+</div>
+<p class="text-on-surface-variant dark:text-gray-400 text-sm leading-relaxed line-clamp-2 mb-6">High-protein fresh Atlantic salmon served with quinoa, hass avocado, and sesame ginger dressing.</p>
+<div class="mt-auto flex justify-between items-center">
+<div class="flex flex-col">
+<span class="text-[10px] font-black text-outline-variant dark:text-gray-500 uppercase tracking-widest">NUTRITION</span>
+<span class="text-xs font-bold dark:text-gray-300">620 kcal</span>
+</div>
+<button class="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-primary-dim dark:from-brand-gold dark:to-orange-400 text-on-primary dark:text-brand-dark flex items-center justify-center shadow-lg shadow-primary/20 dark:shadow-brand-gold/20 active:scale-90 transition-all">
+<span class="material-symbols-outlined font-bold">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="group bg-surface-container-lowest dark:bg-brand-surface rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:shadow-2xl hover:shadow-black/5 dark:hover:shadow-brand-gold/5 hover:-translate-y-1 border border-transparent dark:border-white/5">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Gourmet double cheeseburger" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx5ZfuKV8cwCrlNWtjRFrfcZsMhPW8P6WGnKt3CX2pSII87svgkdfkBuHvrK7gUP6a3p7IIPYM7jSQ0yGn3rSKSFeFz11vGK70tt2L6Wig--Dyo7wqS3PEGTiaR4tSdPECWpPnh4JPlxss906gXtftJDeKgA4Jf80Gw1DTo6IwUrabY-kma11MpAJSlpi2aFmMMiydjVb6iNJJGYgm2tFMOLPE3MMsI8BBwb9qMFQnqpD4VT9Vlm6r5hk9dL90mEbe_BTWAIsvAPZU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+<div class="absolute top-4 left-4 bg-white/95 dark:bg-brand-dark/95 backdrop-blur-md px-4 py-1.5 rounded-full shadow-lg">
+<span class="text-on-surface dark:text-brand-gold font-headline font-black text-sm">$14.00</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline font-extrabold text-xl leading-tight dark:text-white">Ironclad Beef Burger</h3>
+<div class="flex items-center text-primary-dim dark:text-brand-gold bg-primary/5 dark:bg-brand-gold/10 px-2 py-0.5 rounded-lg">
+<span class="material-symbols-outlined text-[16px] fill-1">star</span>
+<span class="text-xs font-black ml-1">4.9</span>
+</div>
+</div>
+<p class="text-on-surface-variant dark:text-gray-400 text-sm leading-relaxed line-clamp-2 mb-6">Grass-fed double beef patty, aged cheddar, balsamic onions, and signature smoked paprika aioli.</p>
+<div class="mt-auto flex justify-between items-center">
+<div class="flex flex-col">
+<span class="text-[10px] font-black text-outline-variant dark:text-gray-500 uppercase tracking-widest">NUTRITION</span>
+<span class="text-xs font-bold dark:text-gray-300">850 kcal</span>
+</div>
+<button class="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-primary-dim dark:from-brand-gold dark:to-orange-400 text-on-primary dark:text-brand-dark flex items-center justify-center shadow-lg shadow-primary/20 dark:shadow-brand-gold/20 active:scale-90 transition-all">
+<span class="material-symbols-outlined font-bold">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="group bg-surface-container-lowest dark:bg-brand-surface rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:shadow-2xl hover:shadow-black/5 dark:hover:shadow-brand-gold/5 hover:-translate-y-1 border border-transparent dark:border-white/5">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Artisan garden salad" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEUOA7_TMmbfwR-IPXeF9ig5AJLRemywjeMoMIi05t6fuj7jSVyasenE6OVJcGKDCKTWiryKk0-OuakYr-dkdbHoGMhDgXyj62ZuTPXgidscRptH0x8KouErxAw1eGZRUdmVe4SVu0ZQJKp3Tjxh2L0wxTSVBJd64YjkLrmWTdekl_BWViirqIeCErUFvcHwNJisyM2UUvLwSo5jGmxMIweoQEHx1xbTCaIqxVdscG0qIW0nisV91QDFpXf_zzB4RPHFPHKu1brc-n"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+<div class="absolute top-4 left-4 bg-white/95 dark:bg-brand-dark/95 backdrop-blur-md px-4 py-1.5 rounded-full shadow-lg">
+<span class="text-on-surface dark:text-brand-gold font-headline font-black text-sm">$10.50</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline font-extrabold text-xl leading-tight dark:text-white">Harvest Garden Mix</h3>
+<div class="flex items-center text-primary-dim dark:text-brand-gold bg-primary/5 dark:bg-brand-gold/10 px-2 py-0.5 rounded-lg">
+<span class="material-symbols-outlined text-[16px] fill-1">star</span>
+<span class="text-xs font-black ml-1">4.7</span>
+</div>
+</div>
+<p class="text-on-surface-variant dark:text-gray-400 text-sm leading-relaxed line-clamp-2 mb-6">Organic field greens, heirloom tomatoes, cucumber ribbons, toasted walnuts with lemon-tahini dressing.</p>
+<div class="mt-auto flex justify-between items-center">
+<div class="flex flex-col">
+<span class="text-[10px] font-black text-outline-variant dark:text-gray-500 uppercase tracking-widest">NUTRITION</span>
+<span class="text-xs font-bold dark:text-gray-300">310 kcal</span>
+</div>
+<button class="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-primary-dim dark:from-brand-gold dark:to-orange-400 text-on-primary dark:text-brand-dark flex items-center justify-center shadow-lg shadow-primary/20 dark:shadow-brand-gold/20 active:scale-90 transition-all">
+<span class="material-symbols-outlined font-bold">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Component Injection -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-[#131318]/80 dark:bg-brand-dark/90 backdrop-blur-xl shadow-[0_-8px_32px_rgba(0,0,0,0.3)] rounded-t-2xl border-t border-[#464753]/15">
+<a class="flex flex-col items-center justify-center bg-[#783200] dark:bg-brand-gold text-[#ffb690] dark:text-brand-dark rounded-xl px-4 py-1.5 transition-transform scale-90 active:scale-100" href="#">
+<span class="material-symbols-outlined fill-1">storefront</span>
+<span class="font-headline text-[10px] uppercase tracking-widest font-bold mt-0.5">Canteen</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#aaaab7] px-4 py-1.5 transition-transform scale-90 active:scale-100 hover:text-brand-gold" href="#">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="font-headline text-[10px] uppercase tracking-widest font-bold mt-0.5">My Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#aaaab7] px-4 py-1.5 transition-transform scale-90 active:scale-100 hover:text-brand-gold" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-headline text-[10px] uppercase tracking-widest font-bold mt-0.5">Wallet</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#aaaab7] px-4 py-1.5 transition-transform scale-90 active:scale-100 hover:text-brand-gold" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-headline text-[10px] uppercase tracking-widest font-bold mt-0.5">Profile</span>
+</a>
+</nav>
+</body></html>
